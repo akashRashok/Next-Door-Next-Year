@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Next Door Next Year",
+  "version": "1.0.0",
+  "description": "Check nearby planning evidence while viewing an apartment listing.",
+  "minimum_chrome_version": "116",
+  "permissions": ["sidePanel", "activeTab", "scripting", "tabs"],
+  "host_permissions": ["http://127.0.0.1:8787/*"],
+  "background": { "service_worker": "dist/background.js", "type": "module" },
+  "side_panel": { "default_path": "panel.html" },
+  "action": { "default_title": "Next Door Next Year" }
+}

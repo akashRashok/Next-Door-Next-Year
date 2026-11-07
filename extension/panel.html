@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Next Door Next Year</title>
+    <link rel="stylesheet" href="panel.css" />
+  </head>
+  <body>
+    <main id="app">
+      <header class="header"><span class="eyebrow">BUY WITH EVIDENCE</span><h1>Next Door<br /><em>Next Year</em></h1><p>See what is proposed near a home before you inspect.</p></header>
+      <section class="search" aria-labelledby="search-title"><h2 id="search-title">Check this address</h2><form id="address-form"><label for="address">Apartment or building address</label><input id="address" name="address" autocomplete="street-address" placeholder="102/2 Sam Sing St, Waterloo NSW" required /><div class="actions"><button type="submit" class="primary">Check nearby plans</button><button type="button" id="read-listing" class="secondary">Use listing address</button></div></form><p id="extract-note" class="hint"></p></section>
+      <div id="result" aria-live="polite"></div>
+      <footer>Distances are straight-line estimates. Planning records do not predict a unit’s future daylight.</footer>
+    </main>
+    <script type="module" src="dist/panel.js"></script>
+  </body>
+</html>

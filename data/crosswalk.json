@@ -1,0 +1,38 @@
+[
+  {
+    "id": "waterloo-bourke-903-921",
+    "title": "903–921 Bourke Street redevelopment",
+    "address": "903–921 Bourke Street, Waterloo NSW 2017",
+    "suburb": "Waterloo (NSW)",
+    "lat": -33.899793686,
+    "lng": 151.209667021,
+    "coordinateSource": "https://daleads.com.au/projects/proj_d9cd0d6c2701d6150c021ebe/903-921-bourke-street-waterloo",
+    "checkedAt": "2026-11-07",
+    "question": "Do the official planning documents assess shadows at this building, and what do they show for the apartment's windows and balcony?",
+    "records": [
+      {
+        "reference": "D/2021/1415",
+        "stage": "Existing consent",
+        "summary": "Existing consent for six mixed-use buildings. The NSW proposal page describes the baseline as 376 apartments.",
+        "url": "https://meetings.cityofsydney.nsw.gov.au/mgIssueHistoryHome.aspx?IId=22109",
+        "source": "City of Sydney meeting record"
+      },
+      {
+        "reference": "SSD-95997711",
+        "stage": "Assessment",
+        "summary": "Amending proposal seeks approximately 250 additional apartments; it has not been approved.",
+        "url": "https://www.planningportal.nsw.gov.au/major-projects/projects/mixed-use-development-903-921-bourke-st-waterloo",
+        "source": "NSW Planning Portal"
+      }
+    ]
+  },
+  {"id":"waterloo-bourke-881-885","title":"881–885 Bourke Street mixed use","address":"881-885 Bourke Street, Waterloo NSW 2017","suburb":"Waterloo (NSW)","checkedAt":"2026-11-07","records":[{"reference":"SSD-80441462","stage":"Approved","summary":"The NSW Planning Portal records an approval dated 21 August 2026 for this mixed-use housing development.","url":"https://www.planningportal.nsw.gov.au/major-projects/projects/waterloo-mixed-use-development-881-885-bourke-street","source":"NSW Planning Portal"}]},
+  {"id":"alexandria-euston-205-225","title":"205–225 Euston Road mixed use","address":"205-225 Euston Road, Alexandria NSW 2015","suburb":"Alexandria","checkedAt":"2026-11-07","records":[{"reference":"SSD-106991748","stage":"Prepare EIS","summary":"Proposal for mixed-use buildings including approximately 700 dwellings.","url":"https://www.planningportal.nsw.gov.au/major-projects/projects/mixed-use-development-205-225-euston-rd-alexandria","source":"NSW Planning Portal"}]},
+  {"id":"redfern-elizabeth-600-660","title":"600–660 Elizabeth Street mixed use","address":"600-660 Elizabeth Street, Redfern NSW 2016","suburb":"Redfern","checkedAt":"2026-11-07","records":[{"reference":"SSD-51274973","stage":"Approved","summary":"Four buildings with social and affordable housing, community and commercial uses.","url":"https://www.planningportal.nsw.gov.au/major-projects/projects/600-660-elizabeth-street-redfern-mixed-use","source":"NSW Planning Portal"}]},
+  {"id":"pyrmont-union-60","title":"60 Union Street mixed use","address":"60 Union Street, Pyrmont NSW 2009","suburb":"Pyrmont","checkedAt":"2026-11-07","records":[{"reference":"SSD-96974214","stage":"Response to Submissions","summary":"Proposal to convert and extend a commercial building for residential and retail use.","url":"https://www.planningportal.nsw.gov.au/major-projects/projects/mixed-use-development-60-union-street-pyrmont","source":"NSW Planning Portal"}]},
+  {"id":"glebe-point-357","title":"357 Glebe Point Road affordable housing","address":"357 Glebe Point Road, Glebe NSW 2037","suburb":"Glebe (NSW)","checkedAt":"2026-11-07","records":[{"reference":"SSD-102660958","stage":"Prepare EIS","summary":"Proposal for two residential flat buildings with infill affordable housing.","url":"https://www.planningportal.nsw.gov.au/major-projects/projects/residential-development-infill-affordable-housing-357-glebe-point-road-glebe-nsw-2037","source":"NSW Planning Portal"}]},
+  {"id":"surry-elizabeth-328-344","title":"328–344 Elizabeth Street mixed use","address":"328-344 Elizabeth Street, Surry Hills NSW 2010","suburb":"Surry Hills","checkedAt":"2026-11-07","records":[{"reference":"SSD-107436222","stage":"Prepare EIS","summary":"Proposal for a residential tower and adaptive reuse of a heritage building.","url":"https://www.planningportal.nsw.gov.au/major-projects/projects/mixed-use-development-328-344-elizabeth-street-surry-hills","source":"NSW Planning Portal"}]},
+  {"id":"surry-marlborough-47-97","title":"Marlborough House affordable housing","address":"47-97 Marlborough Street, Surry Hills NSW 2010","suburb":"Surry Hills","checkedAt":"2026-11-07","records":[{"reference":"SSD-78545225","stage":"Assessment","summary":"Proposal to adapt and extend Marlborough House for residential use.","url":"https://www.planningportal.nsw.gov.au/major-projects/projects/marlborough-house-mixed-use-development-infill-affordable-housing","source":"NSW Planning Portal"}]},
+  {"id":"zetland-green-square-7-17-18","title":"Green Square sites 7, 17 and 18","address":"960A Bourke Street, Zetland NSW 2017","suburb":"Zetland","checkedAt":"2026-11-07","records":[{"reference":"SSD-83899206","stage":"Assessment","summary":"Proposed mixed-use development across three Green Square Town Centre sites.","url":"https://www.planningportal.nsw.gov.au/major-projects/projects/mixed-use-development-green-square-town-centre-sites-717-and-18","source":"NSW Planning Portal"}]},
+  {"id":"zetland-green-square-8-19","title":"Green Square sites 8 and 19","address":"6 Geddes Avenue, Zetland NSW 2017","suburb":"Zetland","checkedAt":"2026-11-07","records":[{"reference":"SSD-84322496","stage":"Response to Submissions","summary":"Proposed residential and mixed-use development across Green Square Town Centre sites 8 and 19.","url":"https://www.planningportal.nsw.gov.au/major-projects/projects/mixed-use-development-green-square-town-centre-sites-8-and-19","source":"NSW Planning Portal"}]}
+]
