@@ -1,9 +1,156 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Next Door Next Year — hackathon report</title><style>
-:root{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#16383a;background:#f4f5f0}*{box-sizing:border-box}body{margin:0}main{max-width:900px;margin:auto;background:#fff;min-height:100vh;padding:48px clamp(22px,6vw,75px)}.kicker{text-transform:uppercase;letter-spacing:.18em;color:#287265;font-size:11px;font-weight:800}h1{font-size:clamp(38px,6vw,64px);letter-spacing:-.06em;line-height:1.02;margin:14px 0}h2{font-size:23px;letter-spacing:-.03em;margin:42px 0 12px}p,li{font-size:15px;line-height:1.65}p.lead{font-size:20px;line-height:1.45;max-width:680px}a{color:#0f6b62}table{border-collapse:collapse;width:100%;font-size:13px;margin-top:15px}td,th{text-align:left;vertical-align:top;padding:12px;border-bottom:1px solid #dae4dd}th{background:#e7eee9}.note{background:#edf3e6;padding:16px;border-left:4px solid #8abb7a}.warning{background:#fff0df;padding:15px;border-left:4px solid #dd9d46}.small{font-size:12px;color:#526a69}.metric{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0}.metric div{background:#e8f1e9;padding:17px;border-radius:9px}.metric strong{font-size:26px;display:block}@media(max-width:650px){main{padding-top:30px}.metric{grid-template-columns:1fr}table{font-size:11px}td,th{padding:8px}}
-</style></head><body><main><span class="kicker">Microburbs hackathon · Task 3 · 7 November 2026</span><h1>Next Door<br>Next Year</h1><p class="lead">An apartment can look bright today while a nearby site has an existing consent and a larger proposal under assessment. This Chrome side panel gives buyers an official record to check and a concrete question for inspection.</p>
-<div class="metric"><div><strong>1</strong> exact-unit fact required</div><div><strong>300 m</strong> starting search radius</div><div><strong>10</strong> reviewed SSD records</div></div>
-<h2>The buyer’s decision</h2><p>The primary user is an owner-occupier comparing City of Sydney apartments where daylight or outlook affects a shortlist. The panel first establishes the address and match scope, then shows up to three nearby sites. It never predicts a unit’s future sunlight from distance alone.</p>
-<h2>How it works</h2><ol><li>The buyer opens the side panel beside a realestate.com.au listing or enters an address manually.</li><li>The local server resolves candidates through Microburbs. Only a unique exact unit match permits a bedroom fact. Postcode disagreement stops the lookup.</li><li>The server retrieves the property’s coordinates and recent suburb DA records. It measures straight-line distance and compass direction.</li><li>A reviewed crosswalk supplies official references, status and links for ten residential SSD records. Unlinked Microburbs rows remain labelled candidates. Consent and proposal records stay separate.</li></ol><p class="small">The API key stays in the local server. The browser sends only the chosen address. Microburbs development feeds are recent and bounded; state projects may be absent.</p>
-<h2>The Waterloo case</h2><p>The <a href="https://www.realestate.com.au/property-apartment-nsw-waterloo-151767176">102/2 Sam Sing Street listing</a> describes an east-facing, light-filled unit. The protected Microburbs demo resolves it as GNAF <code>GANSW719665322</code> with one bedroom; it returns no AVM. The product still requests the fact live during use.</p><p>The <a href="https://meetings.cityofsydney.nsw.gov.au/mgIssueHistoryHome.aspx?IId=22109">City consent D/2021/1415</a> and <a href="https://www.planningportal.nsw.gov.au/major-projects/projects/mixed-use-development-903-921-bourke-st-waterloo">state proposal SSD-95997711</a> refer to 903–921 Bourke Street. The state page describes the existing six buildings with 376 apartments and a request for approximately 250 additional apartments. Its status was <strong>Assessment</strong> when checked on 7 November 2026; this proposal is not an approval.</p><p class="note">Inspection question: Do the official planning documents assess shadows at this building, and what do they show for the apartment’s windows and balcony? The site is northwest of the listing building on the checked map points. Geometry alone does not establish a daylight effect.</p>
-<h2>What buyers already see</h2><table><thead><tr><th>Product</th><th>Visible buyer help</th><th>Gap this demo addresses</th></tr></thead><tbody><tr><td>realestate.com.au listing</td><td>Listing facts, photos and inspection details</td><td>No nearby consent-versus-proposal comparison was visible on the flagship listing checked.</td></tr><tr><td><a href="https://chromewebstore.google.com/detail/homer-formerly-koaladata/hlmlbjneliokncgbophonbofnikfimja">Homer</a></td><td>Price guides, changes and campaign history; Chrome Web Store lists 20,000 users.</td><td>Its store description does not describe this official planning comparison.</td></tr><tr><td><a href="https://chromewebstore.google.com/detail/property-seeker/olfjldooogfhhgklechmbdemheblklga">Property Seeker</a></td><td>Hidden price ranges and property insights on major portals.</td><td>Its store description does not describe this official planning comparison.</td></tr></tbody></table><p class="small">Domain’s native nearby-DA coverage was not independently verified for this report; no claim is made about it.</p>
-<h2>Matching evidence</h2><p class="note"><strong>Ten-address held-out check, 7 November 2026:</strong> 7 exact unit matches, 0 correct building-only results, 3 safe abstentions, 0 wrong-unit matches, 0 API errors. The ten addresses came from current realestate.com.au listings selected after implementation; none were used in the matcher tests. Overall exact yield was 7/10. The three abstentions remain in the denominator; this run does not establish the 80% verifiable-unit target because independent GNAF truth for the unmatched addresses is unavailable.</p><p>One abstention exposed a four-digit-unit parser error; it was fixed before this final run. The remaining abstentions were a listed 551 Elizabeth Street unit whose GNAF candidate uses 543–551, a G01 Euston Road listing without a same-street candidate, and an A309 Geddes Avenue listing with no geocoder candidate. The matcher did not guess across those discrepancies.</p><table><thead><tr><th>Independent listing address</th><th>Outcome</th></tr></thead><tbody><tr><td><a href="https://www.realestate.com.au/property-apartment-nsw-waterloo-445253204">1002/2 Sam Sing Street, Waterloo NSW 2017</a></td><td>Exact unit</td></tr><tr><td><a href="https://www.realestate.com.au/property-apartment-nsw-surry%2Bhills-152864668">34/507-515 Elizabeth Street, Surry Hills NSW 2010</a></td><td>Exact unit</td></tr><tr><td><a href="https://www.realestate.com.au/property-apartment-nsw-surry%2Bhills-445403616">407/228 Elizabeth Street, Surry Hills NSW 2010</a></td><td>Exact unit</td></tr><tr><td><a href="https://www.realestate.com.au/property-apartment-nsw-surry%2Bhills-430169254">54/551 Elizabeth Street, Surry Hills NSW 2010</a></td><td>Safe abstention</td></tr><tr><td><a href="https://www.realestate.com.au/property-apartment-nsw-alexandria-152360936">G01/71-91 Euston Road, Alexandria NSW 2015</a></td><td>Safe abstention</td></tr><tr><td><a href="https://www.realestate.com.au/property-apartment-nsw-alexandria-152564604">8/33 Euston Road, Alexandria NSW 2015</a></td><td>Exact unit</td></tr><tr><td><a href="https://www.realestate.com.au/property-apartment-nsw-glebe-445388984">2/433 Glebe Point Road, Glebe NSW 2037</a></td><td>Exact unit</td></tr><tr><td><a href="https://www.realestate.com.au/property-apartment-nsw-glebe-440645116">5/403 Glebe Point Road, Glebe NSW 2037</a></td><td>Exact unit</td></tr><tr><td><a href="https://www.realestate.com.au/property-apartment-nsw-zetland-445329548">A309/25 Geddes Avenue, Zetland NSW 2017</a></td><td>Safe abstention</td></tr><tr><td><a href="https://www.realestate.com.au/property-apartment-nsw-zetland-435324827">508/25 Geddes Avenue, Zetland NSW 2017</a></td><td>Exact unit</td></tr></tbody></table><p class="small">Run <code>node --env-file=.env scripts/check_holdout.js</code> to reproduce the live check. The sample addresses and source links are in <code>data/holdout.json</code>. Automated tests cover unit matching, postcode mismatch, source stage, and empty versus partial coverage. The flagship and a second Waterloo listing were also checked live. Browser installation QA remains pending.</p><h2>Limits</h2><p>The crosswalk is a curated sample. Sites lacking a defensible coordinate are omitted; an empty result does not mean no project exists. Candidate rows may lack official reference and status, so they are not treated as verified. Planning status and documents can change. The panel does not model views, shadow movement, construction timing or property value.</p><p class="small">Sources: <a href="https://api-ht.microburbs.com.au/docs#description/introduction">Microburbs event API</a> · <a href="https://www.planningportal.nsw.gov.au/major-projects/projects/mixed-use-development-903-921-bourke-st-waterloo">NSW Planning Portal</a> · <a href="https://meetings.cityofsydney.nsw.gov.au/mgIssueHistoryHome.aspx?IId=22109">City of Sydney</a> · <a href="https://www.strataclear.com.au/property/nsw/waterloo/sp96589/">2 Sam Sing Street map point</a> · <a href="https://daleads.com.au/projects/proj_d9cd0d6c2701d6150c021ebe/903-921-bourke-street-waterloo">903–921 Bourke Street map point</a>. All checked 7 November 2026.</p></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Next Door Next Year: a Chrome side panel that puts checked planning evidence beside City of Sydney apartment listings.">
+  <title>Next Door Next Year — final hackathon report</title>
+  <style>
+    :root{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#193738;background:#edf1eb}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0}
+    a{color:#075e58;text-underline-offset:3px}
+    a:hover{color:#083f3b}
+    a:focus-visible{outline:3px solid #d58a32;outline-offset:4px;border-radius:2px}
+    .skip{position:absolute;left:-9999px;top:8px;background:#fff;padding:8px 12px;z-index:2}
+    .skip:focus{left:8px}
+    .page{max-width:1040px;margin:auto;background:#fff;min-height:100vh;box-shadow:0 24px 60px #16383a12}
+    .wrap{padding-inline:clamp(22px,6vw,72px)}
+    header{padding-block:44px 54px;background:linear-gradient(125deg,#e6f0e8 0%,#f8f7ef 100%);border-bottom:1px solid #d4e1d8}
+    .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:#285f59}
+    h1{font-size:clamp(48px,7vw,78px);letter-spacing:-.065em;line-height:.98;margin:16px 0 20px;max-width:700px}
+    .lead{font-size:clamp(18px,2.3vw,23px);line-height:1.45;max-width:710px;margin:0;color:#29494a}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .button{display:inline-block;padding:11px 16px;border-radius:9px;font-weight:700;text-decoration:none;border:1px solid #0b645d}
+    .button.primary{background:#0b645d;color:#fff}
+    .button.secondary{background:#fff;color:#0b645d}
+    .button:hover{filter:brightness(.94)}
+    .status{margin-top:28px;background:#fff9ec;border-left:4px solid #ba772a;padding:14px 17px;max-width:760px;font-size:14px;line-height:1.55}
+    nav{display:flex;gap:16px 24px;flex-wrap:wrap;padding-block:15px;border-bottom:1px solid #dce6df;font-size:13px;font-weight:700}
+    nav a{text-decoration:none}
+    main{padding-block:24px 72px}
+    section{scroll-margin-top:24px;margin-top:50px}
+    h2{font-size:clamp(25px,3vw,32px);letter-spacing:-.04em;margin:0 0 15px}
+    h3{font-size:17px;margin:0 0 9px}
+    p,li{font-size:15px;line-height:1.68}
+    p{margin:10px 0}
+    .muted{color:#4c6260}
+    .small{font-size:13px}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:25px 0 0}
+    .metric{background:#eaf2eb;border-radius:11px;padding:18px}
+    .metric strong{display:block;font-size:30px;line-height:1.15;letter-spacing:-.04em}
+    .metric span{display:block;font-size:13px;line-height:1.45;margin-top:5px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:20px}
+    .card{border:1px solid #d8e3dc;border-radius:11px;padding:19px;background:#fff}
+    .card p{margin-bottom:0}
+    .tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#1a665b;margin-bottom:9px}
+    .callout{background:#edf3e8;border-left:4px solid #77a967;padding:17px 20px;margin:22px 0;border-radius:0 8px 8px 0}
+    .callout p{margin:0}
+    .table-scroll{overflow-x:auto;margin-top:18px}
+    table{width:100%;border-collapse:collapse;font-size:14px;min-width:580px}
+    th,td{text-align:left;vertical-align:top;padding:12px 10px;border-bottom:1px solid #dce6df}
+    th{background:#edf3ef;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+    td:first-child{width:65%}
+    .outcome{font-weight:700;color:#245e4e;white-space:nowrap}
+    .outcome.abstain{color:#8a5b1b}
+    .steps{padding-left:22px}
+    .steps li{padding-left:5px;margin:9px 0}
+    code{font-size:.92em;background:#edf2ee;padding:2px 5px;border-radius:4px;overflow-wrap:anywhere}
+    .source-list{padding-left:21px}
+    .source-list li{margin:7px 0}
+    footer{border-top:1px solid #dce6df;padding-block:24px 35px;color:#4c6260;font-size:13px}
+    @media(max-width:650px){header{padding-block:32px 38px}.metrics,.grid{grid-template-columns:1fr}section{margin-top:38px}.actions{flex-direction:column;align-items:stretch}.button{text-align:center}}
+    @media print{html{scroll-behavior:auto}body{background:#fff}.page{box-shadow:none}header{padding-block:22px;background:#fff}.actions,nav,.skip{display:none}main{padding-bottom:10px}section{break-inside:avoid;margin-top:30px}a{color:inherit}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to report</a>
+  <div class="page">
+    <header class="wrap">
+      <div class="eyebrow">Microburbs Hackathon · Task 3 · final submission · 7 November 2026</div>
+      <h1>Next Door<br>Next Year</h1>
+      <p class="lead">Check what is planned near an apartment before you buy it. This Chrome side panel puts the address match, nearby projects, and official planning records beside a listing.</p>
+      <div class="actions">
+        <a class="button primary" href="demo.mp4">Watch demo</a>
+        <a class="button secondary" href="pitch.mp4">Watch pitch</a>
+        <a class="button secondary" href="README.md">Run the prototype</a>
+      </div>
+      <div class="status"><strong>Submission status:</strong> The flagship and ten-address checks used the live Microburbs team key. The installed Chrome extension was checked on the flagship listing: it extracted the address, verified the unit, and displayed nearby planning records. The narrated demo is a Stageshow reconstruction of that observed flow, not a screen recording. Broader browser QA remains open.</div>
+    </header>
+    <nav class="wrap" aria-label="Report sections">
+      <a href="#decision">Buyer decision</a><a href="#workflow">How it works</a><a href="#waterloo">Waterloo case</a><a href="#evidence">Matching evidence</a><a href="#limits">Limits and sources</a>
+    </nav>
+    <main id="main" class="wrap">
+      <section id="decision" aria-labelledby="decision-title">
+        <h2 id="decision-title">The buyer decision</h2>
+        <p>The primary user is an owner-occupier comparing City of Sydney apartments where daylight or outlook affects a shortlist. A listing can describe an apartment as bright today while a nearby site has an existing consent and a larger proposal under assessment. The panel gives the buyer an official record to inspect and a useful question to take to inspection.</p>
+        <div class="metrics" aria-label="Prototype scope">
+          <div class="metric"><strong>1</strong><span>exact unit match required before showing a bedroom fact</span></div>
+          <div class="metric"><strong>300 m</strong><span>starting radius for nearby planning sites</span></div>
+          <div class="metric"><strong>10</strong><span>manually reviewed SSD entries in the project crosswalk</span></div>
+        </div>
+      </section>
+      <section id="workflow" aria-labelledby="workflow-title">
+        <h2 id="workflow-title">How it works</h2>
+        <ol class="steps">
+          <li>The buyer opens the side panel on an individual realestate.com.au or Domain property page and chooses to read its address, or enters an address manually.</li>
+          <li>The local server resolves address candidates through Microburbs. A unique exact unit match permits a bedroom fact; ambiguity or a postcode mismatch suppresses it.</li>
+          <li>The server requests the property point and recent suburb DA feeds, then calculates straight-line distance and compass direction to sites within 300 m.</li>
+          <li>A reviewed crosswalk supplies official references, stages, and links. Unlinked Microburbs rows stay labelled as unverified candidates, and consent and proposal records stay separate.</li>
+        </ol>
+        <p class="small muted">The API key stays in the local Node process. The browser sends only the address the user chooses to check. Recent development feeds and the curated crosswalk do not provide exhaustive planning coverage.</p>
+      </section>
+      <section id="waterloo" aria-labelledby="waterloo-title">
+        <h2 id="waterloo-title">The Waterloo case</h2>
+        <p>The <a href="https://www.realestate.com.au/property-apartment-nsw-waterloo-151767176">102/2 Sam Sing Street listing</a> describes an east-facing, light-filled apartment. The protected Microburbs demo resolved the exact GNAF unit <code>GANSW719665322</code> with one bedroom and no AVM. The product requests the fact live during use.</p>
+        <div class="grid">
+          <article class="card"><div class="tag">Existing consent</div><h3>D/2021/1415</h3><p>City of Sydney record for 903–921 Bourke Street.</p><p><a href="https://meetings.cityofsydney.nsw.gov.au/mgIssueHistoryHome.aspx?IId=22109">Open council record ↗</a></p></article>
+          <article class="card"><div class="tag">State proposal · Assessment when checked</div><h3>SSD-95997711</h3><p>An amendment seeking approximately 250 additional apartments at the same site. Assessment is not approval.</p><p><a href="https://www.planningportal.nsw.gov.au/major-projects/projects/mixed-use-development-903-921-bourke-st-waterloo">Open NSW project record ↗</a></p></article>
+        </div>
+        <p>The NSW page described six buildings containing 376 apartments under the existing scheme and an amendment seeking approximately 250 more. The proposal stage was <strong>Assessment</strong> when checked on 7 November 2026.</p>
+        <div class="callout"><p><strong>Ask at inspection:</strong> Do the official planning documents assess shadows at this building, and what do they show for the apartment’s windows and balcony? The site is northwest of the listing building on the checked map points. Geometry alone does not establish a unit-level daylight effect.</p></div>
+      </section>
+      <section id="comparison" aria-labelledby="comparison-title">
+        <h2 id="comparison-title">What buyers already see</h2>
+        <div class="table-scroll"><table><thead><tr><th scope="col">Product</th><th scope="col">Visible buyer help</th><th scope="col">Gap this demo addresses</th></tr></thead><tbody>
+          <tr><td>realestate.com.au listing</td><td>Listing facts, photos, and inspection details</td><td>No nearby consent-versus-proposal comparison was visible on the flagship listing checked.</td></tr>
+          <tr><td><a href="https://chromewebstore.google.com/detail/homer-formerly-koaladata/hlmlbjneliokncgbophonbofnikfimja">Homer</a></td><td>Price guides, changes, and campaign history</td><td>Its store description does not describe this official planning comparison.</td></tr>
+          <tr><td><a href="https://chromewebstore.google.com/detail/property-seeker/olfjldooogfhhgklechmbdemheblklga">Property Seeker</a></td><td>Hidden price ranges and property insights</td><td>Its store description does not describe this official planning comparison.</td></tr>
+        </tbody></table></div>
+      </section>
+      <section id="evidence" aria-labelledby="evidence-title">
+        <h2 id="evidence-title">Matching evidence</h2>
+        <div class="callout"><p><strong>Ten-address held-out check, 7 November 2026:</strong> 7 exact unit matches, 0 building-only matches, 3 safe abstentions, 0 wrong-unit matches, and 0 API errors. Exact yield was 7/10. The 80% target among independently verifiable units remains unconfirmed because the unmatched listing addresses lack independent GNAF truth.</p></div>
+        <p>The ten public listing addresses were selected after implementation and were not used in the matcher tests. One earlier four-digit-unit parser error was fixed before the final run. The three final abstentions involved a 551 Elizabeth Street listing whose GNAF candidate uses 543–551, a G01 Euston Road listing without a same-street candidate, and an A309 Geddes Avenue listing with no geocoder candidate. The matcher did not guess across those discrepancies.</p>
+        <div class="table-scroll"><table><thead><tr><th scope="col">Independent listing address</th><th scope="col">Outcome</th></tr></thead><tbody>
+          <tr><td><a href="https://www.realestate.com.au/property-apartment-nsw-waterloo-445253204">1002/2 Sam Sing Street, Waterloo NSW 2017</a></td><td class="outcome">Exact unit</td></tr>
+          <tr><td><a href="https://www.realestate.com.au/property-apartment-nsw-surry%2Bhills-152864668">34/507-515 Elizabeth Street, Surry Hills NSW 2010</a></td><td class="outcome">Exact unit</td></tr>
+          <tr><td><a href="https://www.realestate.com.au/property-apartment-nsw-surry%2Bhills-445403616">407/228 Elizabeth Street, Surry Hills NSW 2010</a></td><td class="outcome">Exact unit</td></tr>
+          <tr><td><a href="https://www.realestate.com.au/property-apartment-nsw-surry%2Bhills-430169254">54/551 Elizabeth Street, Surry Hills NSW 2010</a></td><td class="outcome abstain">Safe abstention</td></tr>
+          <tr><td><a href="https://www.realestate.com.au/property-apartment-nsw-alexandria-152360936">G01/71-91 Euston Road, Alexandria NSW 2015</a></td><td class="outcome abstain">Safe abstention</td></tr>
+          <tr><td><a href="https://www.realestate.com.au/property-apartment-nsw-alexandria-152564604">8/33 Euston Road, Alexandria NSW 2015</a></td><td class="outcome">Exact unit</td></tr>
+          <tr><td><a href="https://www.realestate.com.au/property-apartment-nsw-glebe-445388984">2/433 Glebe Point Road, Glebe NSW 2037</a></td><td class="outcome">Exact unit</td></tr>
+          <tr><td><a href="https://www.realestate.com.au/property-apartment-nsw-glebe-440645116">5/403 Glebe Point Road, Glebe NSW 2037</a></td><td class="outcome">Exact unit</td></tr>
+          <tr><td><a href="https://www.realestate.com.au/property-apartment-nsw-zetland-445329548">A309/25 Geddes Avenue, Zetland NSW 2017</a></td><td class="outcome abstain">Safe abstention</td></tr>
+          <tr><td><a href="https://www.realestate.com.au/property-apartment-nsw-zetland-435324827">508/25 Geddes Avenue, Zetland NSW 2017</a></td><td class="outcome">Exact unit</td></tr>
+        </tbody></table></div>
+        <p class="small muted">Reproduce the live check with <code>node --env-file=.env scripts/check_holdout.js</code>. Addresses and listing links are in <a href="data/holdout.json">data/holdout.json</a>. Automated tests cover listing extraction, unit matching, postcode mismatch, source stages, and empty versus partial coverage. The flagship and a second Waterloo listing were also checked live.</p>
+      </section>
+      <section id="limits" aria-labelledby="limits-title">
+        <h2 id="limits-title">Limits and sources</h2>
+        <p>The <a href="data/crosswalk.json">project crosswalk</a> is a curated sample. Sites without a defensible coordinate are omitted; an empty result does not mean no project exists. Candidate rows may lack an official reference or stage and are not treated as verified. Planning status and documents can change. The panel does not model views, shadow movement, construction timing, or property value.</p>
+        <ul class="source-list">
+          <li><a href="https://api-ht.microburbs.com.au/docs#description/introduction">Microburbs event API reference</a></li>
+          <li><a href="https://www.planningportal.nsw.gov.au/major-projects/projects/mixed-use-development-903-921-bourke-st-waterloo">NSW Planning Portal — SSD-95997711</a></li>
+          <li><a href="https://meetings.cityofsydney.nsw.gov.au/mgIssueHistoryHome.aspx?IId=22109">City of Sydney — D/2021/1415</a></li>
+          <li><a href="https://www.strataclear.com.au/property/nsw/waterloo/sp96589/">2 Sam Sing Street map point</a> and <a href="https://daleads.com.au/projects/proj_d9cd0d6c2701d6150c021ebe/903-921-bourke-street-waterloo">903–921 Bourke Street map point</a></li>
+        </ul>
+        <p class="small muted">Planning and map sources checked 7 November 2026. Open the linked records for their latest status.</p>
+      </section>
+    </main>
+    <footer class="wrap">Next Door Next Year · Microburbs Hackathon Task 3 · <a href="README.md">Setup and submission files</a></footer>
+  </div>
+</body>
+</html>
