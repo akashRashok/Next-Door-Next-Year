@@ -10,7 +10,7 @@ Requires Node 24+, npm, Chrome 116+, and a City of Sydney hackathon API key.
 2. Copy `.env.example` to `.env`, then set `MICROBURBS_API_KEY` to your team key. Never commit this file.
 3. Run `npm start`. The API binds to `127.0.0.1:8787` only. `http://127.0.0.1:8787/health` reports whether the key is configured.
 4. Open `chrome://extensions`, turn on Developer mode, choose **Load unpacked**, and select the `extension` folder.
-5. Open a realestate.com.au property listing and click the extension icon. Choose **Use listing address** or type an address. On any other site, type the address.
+5. Open an individual realestate.com.au or Domain property page and click the extension icon. Choose **Use listing address** or type an address. On search results or other sites, type the address.
 
 The key stays in the Node process. The extension sends only the address that the user chooses to check. Private lookup addresses and secrets are not written to Git or routine logs; the ten public listing addresses used for the reproducible held-out check are included in `data/holdout.json`.
 

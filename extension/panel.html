@@ -3,15 +3,28 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#193d3d" />
     <title>Next Door Next Year</title>
     <link rel="stylesheet" href="panel.css" />
   </head>
   <body>
     <main id="app">
-      <header class="header"><span class="eyebrow">BUY WITH EVIDENCE</span><h1>Next Door<br /><em>Next Year</em></h1><p>See what is proposed near a home before you inspect.</p></header>
-      <section class="search" aria-labelledby="search-title"><h2 id="search-title">Check this address</h2><form id="address-form"><label for="address">Apartment or building address</label><input id="address" name="address" autocomplete="street-address" placeholder="102/2 Sam Sing St, Waterloo NSW" required /><div class="actions"><button type="submit" class="primary">Check nearby plans</button><button type="button" id="read-listing" class="secondary">Use listing address</button></div></form><p id="extract-note" class="hint"></p></section>
-      <div id="result" aria-live="polite"></div>
-      <footer>Distances are straight-line estimates. Planning records do not predict a unit’s future daylight.</footer>
+      <header class="header">
+        <div class="brand"><span class="brand-name">NEXT DOOR <span aria-hidden="true">/</span> NEXT YEAR</span><span class="brand-tag">SYDNEY</span></div>
+        <div class="hero"><span class="eyebrow">BEFORE YOU INSPECT</span><h1>See what’s<br /><em>proposed nearby.</em></h1><p>See the planning records around a home, then ask a better question at inspection.</p></div>
+        <div class="hero-rule" aria-hidden="true"><span></span><span></span><span></span></div>
+      </header>
+      <section class="search" aria-labelledby="search-title">
+        <div class="section-heading"><span class="step">01</span><h2 id="search-title">Check an address</h2></div>
+        <form id="address-form">
+          <label for="address">Apartment or building address</label>
+          <input id="address" name="address" autocomplete="street-address" placeholder="e.g. 102/2 Sam Sing St, Waterloo" required />
+          <div class="actions"><button type="submit" class="primary">Check nearby plans <span aria-hidden="true">↗</span></button><button type="button" id="read-listing" class="secondary">Use listing address</button></div>
+        </form>
+        <p id="extract-note" class="hint" role="status"></p>
+      </section>
+      <div id="result" aria-live="polite" aria-atomic="false"></div>
+      <footer><span class="footer-label">ABOUT THIS CHECK</span><p>Distances are straight-line estimates. Planning records do not predict a unit’s future daylight.</p></footer>
     </main>
     <script type="module" src="dist/panel.js"></script>
   </body>
